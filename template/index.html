@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jarvis</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static "style.css" %}">
+</head>
+
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<body class="u3">
+  <div class="changing-background"></div>
+
+
+
+  <div class="uday" style="text-align:center" >
+
+  <h1 style="color:red">Hey Jarvis.....</h1>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <!-- Image is now a button -->
+    <button type="submit" name="javis" value="1" style="border:none" class="u2">
+      <img 
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlclKz6iWdsBXASnCv_OVejaQhnJChD6utbg&s" 
+        class="blinking-image" 
+        alt="Click to speak" /  >
+        <h3>// click the image javis is activate</h3>
+    </button>
+
+    <br><br>
+    <input type="submit" name="display" value="Display Data" class="u4">
+
+    <!-- Show speech recognition result -->
+    {% if command %}
+      <h2 class="u8">You said: {{ command }}</h2>
+    {% endif %}
+
+    {% for data in data %}
+      <h3>{{ data.data }}</h3>
+    {% endfor %}
+
+      
+
+  
+  </form>
+ </div>
+</body>
+</html>
+
